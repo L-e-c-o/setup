@@ -4,10 +4,10 @@ Setup is a quick way to configure your Kali cloud instance with some ready-to-us
 
 ## Functioning
 
-[One-liner below](#usage) will retrieve the setup script from this repo and run it with bash.
+[One-liner below](#usage) will retrieve the setup script from this repo and run it with bash.  
 The script will first update the instance.  
-Then it will install necessary packages.
-Finally it will copy configuration files to their respective folders.
+Then it will install necessary packages.  
+Finally it will copy configuration files to their respective folders.  
 
 ## Configurations
 
