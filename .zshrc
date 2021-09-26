@@ -144,3 +144,13 @@ scan () {
     fi
     nmap -A -Pn -p $(nmap -Pn -p- $1 | grep '^[[:digit:]]' | awk -F "/" 'BEGIN { ORS=" " };  {printf $1","}' | sed 's/.$//') $1 -oA $1
 }
+
+# Mount kvm share  usage : 
+share () {
+	if [ $# -eq 2 ]
+  	then
+		sudo mounr -t 9p -o trans=virtio $1 $2
+	else
+		echo "usage : share <share_name> <mount_point>"
+	fi
+}
