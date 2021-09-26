@@ -1,13 +1,45 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/leco/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+# Env
+export PATH=$PATH:$GOPATH
+export GOPATH=$HOME/go:$HOME/go/bin
+
+#ZSH_THEME="robbyrussell"
+
+configure_prompt() {
+    prompt_symbol=㉿
+    [ "$EUID" -eq 0 ] && prompt_symbol=💀
+    case "$PROMPT_ALTERNATIVE" in
+        twoline)
+            PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n$prompt_symbol%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} '
+            RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
+            ;;
+        oneline)
+            PROMPT=$'${debian_chroot:+($debian_chroot)}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))}%B%F{%(#.red.blue)}%n@%m%b%F{reset}:%B%F{%(#.blue.green)}%~%b%F{reset}%(#.#.$) '
+            RPROMPT=
+            ;;
+        backtrack)
+            PROMPT=$'${debian_chroot:+($debian_chroot)}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))}%B%F{red}%n@%m%b%F{reset}:%B%F{blue}%~%b%F{reset}%(#.#.$) '
+            RPROMPT=
+            ;;
+    esac
+}
+
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo extract)
 
 source $ZSH/oh-my-zsh.sh
 
 ### ALIAS ###
+
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+## Public IP
+alias ipe='curl ipinfo.io/ip'
 
 ## Xclip
 alias clip='xclip -r -sel c'
@@ -43,6 +75,7 @@ export PROMPT_COMMAND='history -a;history -n'
 
 ## CLEAR
 alias cls="clear"
+alias c='clear'
 
 ## MKDIR
 alias mkdir="mkdir -vp"
