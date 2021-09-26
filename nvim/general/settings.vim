@@ -6,7 +6,7 @@ colorscheme nord
 set hidden                              " Required to keep multiple buffers open multiple buffers
 "set nowrap                              " Display long lines as just one line
 set wrap
-set spell
+"set spell
 set spelllang=fr,en
 set encoding=utf-8                      " The encoding displayed
 set pumheight=10                        " Makes popup menu smaller
