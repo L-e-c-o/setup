@@ -20,8 +20,8 @@ cp .zshrf $HOME/.zshrc
 cp -r nvim $HOME/.config/
 cp tmux.conf $HOME/.tmux.conf
 
+source $HOME/.zshrc
+
 # Cleanup
 cd .. 
 rm -rf setup
-
-source $HOME/.zshrc
