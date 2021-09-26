@@ -21,6 +21,7 @@ cp -r nvim $HOME/.config/
 cp tmux.conf $HOME/.tmux.conf
 
 # Cleanup
-cd .. && rm -rf setup
+cd .. 
+rm -rf setup
 
 source $HOME/.zshrc
