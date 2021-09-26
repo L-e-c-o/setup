@@ -3,7 +3,7 @@ export ZSH="/home/leco/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo extract dnf)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting sudo extract)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -11,9 +11,6 @@ source $ZSH/oh-my-zsh.sh
 
 ## Xclip
 alias clip='xclip -r -sel c'
-
-## Open
-alias xdg-open='open'
 
 ## sudo
 alias suod='sudo'
@@ -41,16 +38,6 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
-## PROTON VPN
-alias pco='protonvpn-cli c -f' 
-alias ptor='protonvpn-cli c --tor'
-alias pkon='protonvpn-cli ks --on'
-alias pkall='protonvpn-cli ks --always-on'
-alias pkoff='protonvpn-cli ks --off'
-alias pstat='protonvpn-cli s'
-alias pdisc='protonvpn-cli d'
-alias psrv='protonvpn-cli c'
-
 ## Sync history
 export PROMPT_COMMAND='history -a;history -n'
 
@@ -59,12 +46,6 @@ alias cls="clear"
 
 ## MKDIR
 alias mkdir="mkdir -vp"
-
-## VPN HACKTHEBOX
-alias htb='sudo openvpn ~/home/leco/esgi/htb/pro-labs/OFFSHORE/leco/eu-offshore-2-leco.ovpn &'
-
-## VPN TRYHACKME
-alias try='sudo openvpn /home/leco/esgi/tryhackme/leco.ovpn &'
 
 ## SHUTDOWN/REBOOT
 alias shut="shutdown now"
@@ -112,23 +93,9 @@ function serv {
     python3 -m http.server $1
 }
 
-## TASSIN3 WITH OUT SELINUX if error ==> before run "sudo setenforce 0" and after "sudo setenforce 1"
-tassin3 () { 
-    podman run --rm -v $HOME/.gnupg:/root/.gnupg:rw,Z -v $(pwd):/report:rw,Z -ti tassin3 "$@"
-}
-
 ## GIT PUSH
 push () {
-    git pull && git add -A && git commit -m "commit $(date)" && git push
-}
-
-## inotifywait + tassin build dont forget do setenforce 1 when you are done
-build () {
-#    sudo setenforce 0
-    while inotifywait -e modify ./* 
-    do 
-        notify-send "Building" && tassin3 build && notify-send "Finished"  
-    done
+    git pull && git add -A && git commit -m "$1" && git push
 }
 
 ## Kill process by name
@@ -144,13 +111,3 @@ scan () {
     fi
     nmap -A -Pn -p $(nmap -Pn -p- $1 | grep '^[[:digit:]]' | awk -F "/" 'BEGIN { ORS=" " };  {printf $1","}' | sed 's/.$//') $1 -oA $1
 }
-
-## VPN
-vpn () {
-    sudo sed -i '$s/.*/DNS=192.168.100.19 1.1.1.1/' /etc/systemd/resolved.conf && \
-    sudo systemctl restart systemd-resolved && \
-    sudo openvpn ~/sysdream/vpn/router-TCP4-1194-s.matthews-config.ovpn && \
-    sudo sed -i '$s/.*/DNS=1.1.1.1 192.168.100.19/' /etc/systemd/resolved.conf && \
-    sudo systemctl restart systemd-resolved
-}
-
