@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/leco/.config/nvim/general'
+let g:netrw_dirhist_3='/home/leco/.config/nvim'
+let g:netrw_dirhist_2='/home/leco/.config'
+let g:netrw_dirhist_1='/home/leco'
