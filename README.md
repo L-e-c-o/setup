@@ -10,7 +10,7 @@ Setup is a quick way to configure your Kali cloud instance with some ready-to-us
 
 ## Usage
 
-``
+```
 curl https://raw.githubusercontent.com/L-e-c-o/setup/main/install.sh | bash -
 ```
 
