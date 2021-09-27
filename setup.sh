@@ -19,6 +19,7 @@ cd setup
 cp .zshrc $HOME/.zshrc
 cp -r nvim $HOME/.config/
 cp .tmux.conf $HOME/.tmux.conf
+cp .tmux.conf.local $HOME/.tmux.conf.local
 
 source $HOME/.zshrc
 
