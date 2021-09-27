@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="/root/.oh-my-zsh"
 
 # Env
 export PATH=$PATH:$GOPATH
