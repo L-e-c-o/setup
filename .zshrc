@@ -26,6 +26,9 @@ alias fgrep='fgrep --color=auto'
 ## Public IP
 alias ipe='curl ipinfo.io/ip'
 
+## xdg-open
+alias open='xdg-open'
+
 ## Xclip
 alias clip='xclip -r -sel c'
 
