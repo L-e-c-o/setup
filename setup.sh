@@ -4,7 +4,7 @@
 #apt update && apt upgrade -y && apt autoremove -y
 
 # Install necessary packages
-apt install tmux trash-cli neovim xclip zsh golang gobuster ftp -y
+apt install tmux trash-cli neovim xclip zsh golang gobuster ftp tree -y
 
 # Install oh-my-zsh
 yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -18,8 +18,8 @@ cp .tmux.conf $HOME/.tmux.conf
 cp .tmux.conf.local $HOME/.tmux.conf.local
 
 # Autosuggestions & syntax-highlighting
-zsh -c "git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions"
-zsh -c "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+zsh -c "git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+zsh -c "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
 
 # Make zsh default shell
 chsh -s /bin/zsh
