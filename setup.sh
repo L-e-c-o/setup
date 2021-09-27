@@ -18,7 +18,7 @@ git clone https://github.com/L-e-c-o/setup.git
 cd setup
 cp .zshrc $HOME/.zshrc
 cp -r nvim $HOME/.config/
-cp tmux.conf $HOME/.tmux.conf
+cp .tmux.conf $HOME/.tmux.conf
 
 source $HOME/.zshrc
 
