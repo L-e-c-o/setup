@@ -14,7 +14,7 @@
 #git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
 # Fetch configuration files
-https://github.com/L-e-c-o/setup.git
+git clone https://github.com/L-e-c-o/setup.git
 cd setup
 cp .zshrc $HOME/.zshrc
 cp -r nvim $HOME/.config/
