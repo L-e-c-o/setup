@@ -21,9 +21,14 @@ cp .tmux.conf.local $HOME/.tmux.conf.local
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
-source $HOME/.zshrc
+# Make zsh default shell
 chsh -s /bin/zsh
+source $HOME/.zshrc
 
+# Install neovim plugins
+vim +'PlugInstall --sync' +qa
+
+# Remove banner
 touch ~/.hushlogin
 
 # Cleanup
