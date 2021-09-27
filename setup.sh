@@ -7,7 +7,7 @@
 apt install tmux trash-cli neovim xclip zsh golang gobuster ftp tree -y
 
 # Install oh-my-zsh
-yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Fetch configuration files
 git clone https://github.com/L-e-c-o/setup.git
